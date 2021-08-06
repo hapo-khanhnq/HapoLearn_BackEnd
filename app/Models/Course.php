@@ -26,16 +26,16 @@ class Course extends Model
 
     public function teacher()
     {
-        return $this->users()->where('role', 1);
+        return $this->users()->where('role', User::ROLE['teacher']);
     }
 
     public function students()
     {
-        return $this->users()->where('role', 0);
+        return $this->users()->where('role', User::ROLE['student']);
     }
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'location_id')->where('location_type', 1);
+        return $this->hasMany(Review::class, 'location_id')->where('location_type', Review::LOCATION_TYPE['course']);
     }
 }

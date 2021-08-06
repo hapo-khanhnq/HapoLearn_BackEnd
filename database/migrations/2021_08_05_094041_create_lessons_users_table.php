@@ -19,8 +19,6 @@ class CreateLessonsUsersTable extends Migration
             $table->integer('learned')->default(0);
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('lesson_id')->references('id')->on('lessons');
-            $table->foreign('used_id')->references('id')->on('users');
         });
     }
 

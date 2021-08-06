@@ -18,8 +18,6 @@ class CreateCoursesTagsTable extends Migration
             $table->unsignedInteger('tag_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('course_id')->references('id')->on('courses');
-            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 

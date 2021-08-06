@@ -22,7 +22,6 @@ class CreateReviewsTable extends Migration
             $table->integer('location_type')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

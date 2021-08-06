@@ -20,16 +20,16 @@ class Lesson extends Model
 
     public function mentor()
     {
-        return $this->users()->where('role', 1);
+        return $this->users()->where('role', User::ROLE['teacher']);
     }
 
     public function students()
     {
-        return $this->users()->where('role', 0);
+        return $this->users()->where('role', User::ROLE['student']);
     }
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'location_id')->where('location_type', 0);
+        return $this->hasMany(Review::class, 'location_id')->where('location_type', Review::LOCATION_TYPE['lesson']);
     }
 }

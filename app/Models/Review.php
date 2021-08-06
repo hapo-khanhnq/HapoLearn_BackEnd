@@ -9,6 +9,11 @@ class Review extends Model
 {
     use HasFactory;
 
+    const LOCATION_TYPE = [
+        'lesson' => 0,
+        'course' => 1
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -16,9 +21,9 @@ class Review extends Model
 
     public function location()
     {
-        if ('location_type' == 1) {
+        if ('location_type' == self::LOCATION_TYPE['course']) {
             return $this->belongsTo(Course::class, 'location_id');
-        } elseif ('location_type' == 0) {
+        } elseif ('location_type' == self::LOCATION_TYPE['lesson']) {
             return $this->belongsTo(Lesson::class, 'location_id');
         }
     }
