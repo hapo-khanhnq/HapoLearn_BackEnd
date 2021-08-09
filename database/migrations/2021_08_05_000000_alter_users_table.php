@@ -17,7 +17,7 @@ class AlterUsersTable extends Migration
             $table->integer('role');
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
-            $table->date('brithday')->nullable();
+            $table->date('birthday')->nullable();
             $table->string('address')->nullable();
             $table->text('about')->nullable();
             $table->softDeletes();
@@ -35,7 +35,7 @@ class AlterUsersTable extends Migration
             $table->dropColumn('role');
             $table->dropColumn('avatar');
             $table->dropColumn('phone');
-            $table->dropColumn('brithday');
+            $table->dropColumn('birthday');
             $table->dropColumn('address');
             $table->dropColumn('about');
             $table->dropColumn('deleted_at');
