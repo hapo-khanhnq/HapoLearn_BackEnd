@@ -4,10 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Review extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
+    protected $fillable = [
+        'content', 'rate', 'user_id', 'location_id', 'locationType'
+    ];
 
     const LOCATION_TYPE = [
         'lesson' => 0,
@@ -21,9 +27,9 @@ class Review extends Model
 
     public function location()
     {
-        if ('location_type' == self::LOCATION_TYPE['course']) {
+        if ($this->locationType == self::LOCATION_TYPE['course']) {
             return $this->belongsTo(Course::class, 'location_id');
-        } elseif ('location_type' == self::LOCATION_TYPE['lesson']) {
+        } elseif ($this->locationType == self::LOCATION_TYPE['lesson']) {
             return $this->belongsTo(Lesson::class, 'location_id');
         }
     }

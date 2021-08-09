@@ -38,7 +38,7 @@ class AlterUsersTable extends Migration
             $table->dropColumn('brithday');
             $table->dropColumn('address');
             $table->dropColumn('about');
-            $table->dropColumn('delete_at');
+            $table->dropColumn('deleted_at');
         });
     }
 }

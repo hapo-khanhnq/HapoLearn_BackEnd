@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->float('rate')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->integer('location_id')->nullable();
-            $table->integer('location_type')->nullable();
+            $table->integer('locationType')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
